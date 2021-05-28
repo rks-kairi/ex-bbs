@@ -46,12 +46,19 @@ public class ArticleRepository {
 
 		return articleList;
 	}
-	
+	/**
+	 * 記事情報を挿入します.
+	 * 
+	 * @param article 記事情報
+	 */
 	public void insert(Article article) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(article);
-		
+
 		String insertSql = "INSERT INTO articles(name, content) VALUES(:name, :content);";
 		
 		template.update(insertSql, param);
+	}
+	
+	public void deleteByArticleId(int id) {
 	}
 }

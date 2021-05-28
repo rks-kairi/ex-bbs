@@ -16,6 +16,19 @@
     <div th:each=" article: ${articleList}">
         投稿者名:<span th:text="${article.name}"></span><br>
         投稿内容:<pre><span th:text="${article.content}"></span></pre>
+        <br>
+        <div th:each=" comment: ${article.commentList}">
+            コメント者名:<span th:text="${comment.name}"></span><br>
+            コメント内容:<pre><span th:text="${comment.content}"></span></pre>
+        </div>
+        <form action="finished.html" th:action="@{/bulletin/insertComment}" th:object="${commentForm}" method="post">
+            <input type="hidden" name="articleId" th:value="${article.id}">
+            名前：<br>
+            <input type="text" name="name" th:field="*{name}"><br>
+            コメント：<br>
+            <textarea name="content" th:field="*{content}" rows="5" cols="40"></textarea><br>
+            <button>コメント投稿</button>
+        </form>
    <hr>
     </div>
 </body>
