@@ -16,6 +16,10 @@
     <div th:each=" article: ${articleList}">
         投稿者名:<span th:text="${article.name}"></span><br>
         投稿内容:<pre><span th:text="${article.content}"></span></pre>
+        <form action="finished.html" th:action="@{/bulletin/deleteArticle}">
+            <input type="hidden" name="id" th:value="${article.id}">
+            <button>記事削除</button>
+        </form>
         <br>
         <div th:each=" comment: ${article.commentList}">
             コメント者名:<span th:text="${comment.name}"></span><br>

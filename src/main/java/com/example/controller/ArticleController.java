@@ -94,4 +94,11 @@ public class ArticleController {
 		return "redirect:/bulletin/showList";
 	}
 
+	@RequestMapping("/deleteArticle")
+	public String deleteArticle(int id) {
+		System.out.println(id);
+		commentRepository.deleteByArticleId(id);
+		articleRepository.deleteBy(id);
+		return "redirect:/bulletin/showList";
+	}
 }

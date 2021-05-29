@@ -32,5 +32,7 @@ public class ArticleForm {
 	public String toString() {
 		return "ArticleForm [name=" + name + ", content=" + content + "]";
 	}
-
+	
+	
+	
 }
